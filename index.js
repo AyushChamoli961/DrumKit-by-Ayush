@@ -7,6 +7,8 @@ function handleClick(){
   audio.play();*/
   var buttonInnerHTML = this.innerHTML;
   switchCheck(buttonInnerHTML);
+  buttonAnimation(buttonInnerHTML);
+
 }
 
 
@@ -15,6 +17,8 @@ document.addEventListener("keydown", keyPress);
 
 function keyPress(e){
   switchCheck(e.key);
+  buttonAnimation(e.key);
+
 }
 
 
@@ -59,4 +63,14 @@ function switchCheck(comparison){
       default:
           break;
   }
-};
+}
+function buttonAnimation(currentkey){
+  var activeButton =document.querySelector("." + currentkey);
+  activeButton.classList.add("pressed");
+
+
+  setTimeout(function(){
+  activeButton.classList.remove("pressed");
+
+},100);
+}
